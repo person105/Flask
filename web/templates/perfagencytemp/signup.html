@@ -5,35 +5,22 @@
 
 {% block form %} 
 
+	<style>
+		.error{
+			color: white;
+			font-size: 18px;
+			font-style: italic;
+			left: 0;
+			padding-top: 10px;
+			padding-bottom: 10px;    
+		}
+	</style>
+
     <div id="container">
 		<div id="box">
-            {# <input type="checkbox" class="toggle-btn">
 
-			<div id="login">
-				<form method="post">
-					<div style="font-size: 20px;margin: 10px;color: white;">Login</div>
-                    
-                    <span>Username</span>
-					<input class="text" type="text" name="user_name">
-
-                    <br><br>
-
-					<!--- Please remember to remove print check for password --->
-                    <span>Password</span>
-					<input class="text" type="password" name="password">
-
-                    <br><br>
-
-					<input class="button" type="submit" value="Login">
-
-					<input type="hidden" name="form" value="login">
-
-				</form>
-			</div> #}
-
-            <div id="signup">
-            <form method="post">
-					<div style="font-size: 20px;margin: 10px;color: white;">Sign Up</div>
+            <form method="post" id="signup">
+					<div style="font-size: 20px;color: white;">Sign Up</div>
                     
                     <span>Username</span>
 					<input class="text" type="text" name="user_name">
@@ -48,17 +35,22 @@
 
 					<input class="button" type="submit" value="Sign Up">
 
-					<input type="hidden" name="form" value="signup">
+					{# <input type="hidden" name="form" value="signup"> #}
+
+					<div class="error">{{ error }}</div>
 
 
 				</form>
-            </div>
 
 		</div>
 
 		<div id="footer">.</div>
+
+	
 	</div> 
 {% endblock %}
 
 {% block content %} {% endblock %}
+{% block homebtn %} {% endblock %}
+{% block logoutbtn %} {% endblock %}
 

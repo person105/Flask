@@ -8,7 +8,7 @@ db = MySQL()
 def create_app():
     app = Flask(__name__)
 
-    env = yaml.load(open(r'/var/www/html/Flask/web/db.yaml'))
+    env = yaml.load(open(r'D:\GitAssignment\Flask\Flask\web\db.yaml'))
     app.config['SECRET_KEY'] = env['secret']
 
     app.config['MYSQL_HOST'] = env['dbhost']

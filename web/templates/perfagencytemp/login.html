@@ -1,0 +1,53 @@
+{% extends "perfagencytemp/base.html" %}
+
+{% block title %} Hint: How do you alter the conditions of the query to be true? {%endblock%}
+{% block desc %} <span style="color: red;"> {{ query }} </span> {%endblock%}
+
+{% block form %} 
+
+	<style>
+		.error{
+			color: white;
+			font-size: 18px;
+			font-style: italic;
+			left: 0;
+			padding-top: 10px;
+			padding-bottom: 10px;    
+		}
+	</style>
+	
+    <div id="container">
+		<div id="box">
+
+            <form method="post" id="login">
+					<div style="font-size: 20px;color: white;">Login</div>
+                    
+                    <span>Username</span>
+					<input class="text" type="text" name="user_name">
+
+                    <br><br>
+
+					<!--- Please remember to remove print check for password --->
+                    <span>Password</span>
+					<input class="text" type="password" name="password">
+                    
+                    <br><br>
+
+					<input class="button" type="submit" value="Login">
+
+					<div class="error">{{ error }}</div>
+
+
+				</form>
+
+		</div>
+
+		<div id="footer">.</div>
+
+	
+	</div> 
+{% endblock %}
+
+{% block content %} {% endblock %}
+{% block homebtn %} {% endblock %}
+{% block logoutbtn %} {% endblock %}

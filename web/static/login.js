@@ -43,11 +43,47 @@ $(function(){
     });
     }
 
-    var hideError = function () {
-        $(".error").hide();
-    };
-
-    $loginForm.submit(function () {
-        setTimeout(hideError, 5000);
+    var $signUpForm = $('#signup');
+    if($signUpForm.length){
+    $signUpForm.validate({
+        rules:{
+            //username is the name of the textbox
+            user_name: {
+                required: true,
+                //alphanumeric is the custom method, we defined in the above
+                // alphanumeric: true
+            },
+            password: {
+                required: true
+            },
+            
+        },
+        messages:{
+            user_name: {
+                //error message for the required field
+                required: '\nPlease enter username!'
+            },
+            
+            password: {
+                required: '\nPlease enter password!'
+            },
+            
+        },
+        
     });
+    }
+
+    // var hideError = function () {
+    //     $(".error").hide();
+    // };
+
+    // $loginForm.submit(function () {
+    //     setTimeout(hideError, 5000);
+    // });
+
+    // $signUpForm.submit(function () {
+    //     setTimeout(hideError, 5000);
+    // });
 })
+
+

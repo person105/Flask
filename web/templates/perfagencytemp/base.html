@@ -42,6 +42,12 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+    <script src="{{ url_for('static', filename='login.js') }}"></script>  
+
+
 </head>
 <body>
 
@@ -59,7 +65,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li class="active"><a href="/SQL/test" data-toggle="dropdown">Home</a></li>
+                        {% block homebtn %} <li class="active"><a href="/SQL/base" data-toggle="dropdown">Home</a></li> {% endblock %}
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
 
@@ -70,6 +76,8 @@
 
                         </li>
                         <li><a>Contact</a></li>
+                        {% block logoutbtn %}<li><a href="/SQL/login">Log out</a></li> {% endblock %}
+
 
                     </ul>
 
@@ -83,10 +91,12 @@
     <div id="hero" class="hero overlay">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>{% block title %} Welcome {% endblock %}</h1>
-                <p>{% block desc %} Here's the quote of the day {% endblock %}</p>
+                <h1>{% block title %} Welcome {{ username }} {% endblock %}</h1>
+                <p>{% block desc %} {{ flag }} {% endblock %}</p>
             </div><!-- /.hero-text -->
-            {% block form %} {% endblock %}
+            <div class="hero-content">
+                {% block form %} {% endblock %}
+            </div>
         </div><!-- /.hero-content -->
     </div><!-- /.hero -->
 
@@ -160,7 +170,6 @@
             </div>
         </div><!-- /.copyright -->
     </footer><!-- /#footer -->
-
   
 </body>
 </html>
