@@ -1597,8 +1597,7 @@ a.linkedin-bg:hover {
     width: 100vw;
     height: 100vh;
 
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
     font-size: 20px;
 
     display: grid;
@@ -1704,8 +1703,7 @@ span {
 	width: 100%;
 	color: white;
 
-	font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
+	font-family: 'Montserrat', sans-serif;
     font-size: 20px;
 }
 
