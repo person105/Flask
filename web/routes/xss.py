@@ -139,7 +139,7 @@ def signup():
                 db.connection.commit()
              
                 print(cur.rowcount, "Record inserted.")
-                return redirect(url_for('.home', username=username, **request.args))
+                return redirect(url_for('.login'))
 
             else:
                 error = "User exists!"

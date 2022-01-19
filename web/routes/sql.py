@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, jsonify, redirect, url_for
+from flask import Blueprint, render_template, request, jsonify, session, redirect, url_for
 import hashlib
 
 sql = Blueprint('sql', __name__)
@@ -26,13 +26,15 @@ def login():
             cur.execute(query)
             print(query)
 
-            rows = cur.fetchall()
-            res = jsonify(rows)
+            rows = cur.fetchone()
+
+            session['user_id'] = rows[0]
+            session['username'] = rows[1]
 
             print(rows)
 
             if len(rows) > 0:
-                return redirect(url_for('.home', username=username, **request.args))
+                return redirect(url_for('.home'))
 
             else:
                 error = "Invalid username or password!"
@@ -48,14 +50,24 @@ def login():
 @sql.route('/home', methods=['GET', 'POST'])
 def home():
 
-    username = request.args.get('username')
-    return render_template('perfagencytemp/base.html', username=username)
+    flag = ""
+    
+    if session['username'] is not None:
+        
+        if session['username'] == "admin":
+            flag = "FLAG: SUCCESSFUL INFILTRATION"
+
+        return render_template('perfagencytemp/base.html', username=session['username'], flag=flag)
+
+    else:
+        return redirect(url_for('.login'))
+
 
 
 @sql.route('/logout', methods=['GET', 'POST'])
 def logout():
 
-    return redirect(url_for('.login'))
+    return render_template('main/index.html')
 
 
 
