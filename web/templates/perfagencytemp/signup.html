@@ -1,0 +1,64 @@
+{% extends "perfagencytemp/base.html" %}
+
+{% block title %} Your story begins from here. {%endblock%}
+{% block desc %} Your clients on the internet. Learn how to receive them. {%endblock%}
+
+{% block form %} 
+
+    <div id="container">
+		<div id="box">
+            {# <input type="checkbox" class="toggle-btn">
+
+			<div id="login">
+				<form method="post">
+					<div style="font-size: 20px;margin: 10px;color: white;">Login</div>
+                    
+                    <span>Username</span>
+					<input class="text" type="text" name="user_name">
+
+                    <br><br>
+
+					<!--- Please remember to remove print check for password --->
+                    <span>Password</span>
+					<input class="text" type="password" name="password">
+
+                    <br><br>
+
+					<input class="button" type="submit" value="Login">
+
+					<input type="hidden" name="form" value="login">
+
+				</form>
+			</div> #}
+
+            <div id="signup">
+            <form method="post">
+					<div style="font-size: 20px;margin: 10px;color: white;">Sign Up</div>
+                    
+                    <span>Username</span>
+					<input class="text" type="text" name="user_name">
+
+                    <br><br>
+
+					<!--- Please remember to remove print check for password --->
+                    <span>Password</span>
+					<input class="text" type="password" name="password">
+                    
+                    <br><br>
+
+					<input class="button" type="submit" value="Sign Up">
+
+					<input type="hidden" name="form" value="signup">
+
+
+				</form>
+            </div>
+
+		</div>
+
+		<div id="footer">.</div>
+	</div> 
+{% endblock %}
+
+{% block content %} {% endblock %}
+

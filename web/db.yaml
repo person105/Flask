@@ -1,0 +1,5 @@
+dbhost: "localhost"
+dbuser: "admin"
+dbpass: "password"
+dbname: "CTF2"
+secret: "password123"
