@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My website</title>
+	<link href="{{ url_for('static', filename='stylesheets/naturetheme/homepage.css') }}" rel="stylesheet">
+
+</head>
+<body>
+
+	<div class="container">
+		<div id="header">Hello, {{ username }}</div>
+
+		<form method="post">
+			<div class="box">
+
+				<!-- <?php if ($user_data['user_name'] === 'admin'){ ?>
+					<h3>THM{XSS}</h3>
+				<?php } ?> -->
+
+				<div style="font-size: 20px;margin: 10px;color: black;">Submit user description</div>
+
+				<h3>{{ desc }}</h3>
+                <input type="hidden" value=" {{ desc }}">
+
+				<input type="hidden" name="user_name" value="{{ username }}">
+
+				<input class="input-field" name="desc"><br><br>
+				<input class="button" type="submit" value="Submit"><br><br>
+
+				<a href="login">Logout</a>
+
+			</div>
+		</form>
+	</div>
+	
+	
+</body>
+</html>

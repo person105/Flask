@@ -18,11 +18,13 @@ def create_app():
 
     from .routes.index import index
     from .routes.sql import sql
+    from .routes.xss import xss
 
     db.init_app(app)
 
     app.register_blueprint(index, url_prefix='/')
     app.register_blueprint(sql, url_prefix='/SQL')
+    app.register_blueprint(xss, url_prefix='/XSS')
 
 
     return app

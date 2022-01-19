@@ -59,47 +59,47 @@ def logout():
 
 
 
-@sql.route('/signup', methods=['GET', 'POST'])
-def signup():
+# @sql.route('/signup', methods=['GET', 'POST'])
+# def signup():
 
-    from ..__init__ import db
-    error = ""
-    query = ""
+#     from ..__init__ import db
+#     error = ""
+#     query = ""
     
-    if request.method == 'POST':
+#     if request.method == 'POST':
 
-        cur = db.connection.cursor()
+#         cur = db.connection.cursor()
         
-        try:
-            username = request.form.get('user_name')
-            password = request.form.get('password')
+#         try:
+#             username = request.form.get('user_name')
+#             password = request.form.get('password')
 
-            print(request.form)
+#             print(request.form)
 
-            hashed = hashlib.md5(password.encode())
+#             hashed = hashlib.md5(password.encode())
 
-            # Check if user exists
-            query = "select * from users where user_name = '"+username+"'"
-            cur.execute(query)
-            rows = cur.fetchall()
+#             # Check if user exists
+#             query = "select * from users where user_name = '"+username+"'"
+#             cur.execute(query)
+#             rows = cur.fetchall()
 
-            if len(rows) == 0:
-                query = "insert into users (user_name,password) values ('"+username+"','"+hashed.hexdigest()+"')"
+#             if len(rows) == 0:
+#                 query = "insert into users (user_name,password) values ('"+username+"','"+hashed.hexdigest()+"')"
             
-                cur.execute(query)
-                print(query)
+#                 cur.execute(query)
+#                 print(query)
 
-                db.connection.commit()
+#                 db.connection.commit()
              
-                print(cur.rowcount, "Record inserted.")
-                return redirect(url_for('.home', username=username, **request.args))
+#                 print(cur.rowcount, "Record inserted.")
+#                 return redirect(url_for('.home', username=username, **request.args))
 
-            else:
-                error = "User exists!"
+#             else:
+#                 error = "User exists!"
 
-        except Exception as e:
-            print(e)
-        finally:
-            cur.close() 
+#         except Exception as e:
+#             print(e)
+#         finally:
+#             cur.close() 
     
-    return render_template('perfagencytemp/signup.html', error=error)
+#     return render_template('perfagencytemp/signup.html', error=error)
