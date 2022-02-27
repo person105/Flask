@@ -1,8 +1,11 @@
 {% extends "perfagencytemp/login.html" %}
 
-{% block title %} Hint: How do you brute force a server?{%endblock%}
+{% block title %} Hint: How do you brute force a database?{%endblock%}
 
-{% block notes %} <!-- Just upgraded to sqlite and it's so much easier to query the DB! :) --> {% endblock %}
+{% block notes %} <!-- [Add note] --> {% endblock %}
 
 {% block error %} {{ error }} {%endblock%}
 
+{%block username%}<input class="text" type="text" name="user_name" value="{{ username }}"/>{%endblock%}
+
+{%block password%}<input class="text" type="password" name="password" value="{{ password }}"/>{%endblock%}

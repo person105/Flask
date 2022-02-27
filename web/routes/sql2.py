@@ -8,38 +8,44 @@ sql2 = Blueprint('sql2', __name__)
 @sql2.route('/login', methods=['GET', 'POST'])
 def login():
 
-    con = sqlite3.connect('../CTF.db')
-    cur = con.cursor()
-
+    from ..__init__ import db
+    cur = db.connection.cursor()
     error = ""
 
-    if request.method == 'POST':
-        
 
-        try:
+    try:
+        if request.method == 'POST':
             username = request.form.get('user_name')
             password = request.form.get('password')
 
-            cur.execute("SELECT * FROM users WHERE username = '"+username+"' and password = '"+password+"' limit 1")
+        elif request.method == 'GET':
+            username = request.args.get('user_name')
+            password = request.args.get('password')
 
-            rows = cur.fetchone()
-            print(rows)
+        hashed = hashlib.md5(password.encode())
 
+        cur.execute("SELECT * FROM user WHERE username = '"+username+"' and password = '"+hashed.hexdigest()+"' limit 1")
 
-            if rows is not None:
-                session['username'] = rows[0]
-                res = make_response(redirect(url_for('.home')))
-                res.set_cookie('token', rows[1], domain='127.0.0.1', expires=600)
+        rows = cur.fetchone()
+        print(rows)
+    
 
-                return res
+        if rows is not None:
+            session['username'] = rows[0]
+            res = make_response(redirect(url_for('.home')))
+            res.set_cookie('token', rows[1])
 
-            else:
-                error = "Invalid username or password!"
+            return res
 
-        except Exception as e:
-            print(e)
-        finally:
-            cur.close() 
+        else:
+            error = "Invalid username or password!"
+
+    except Exception as e:
+        print(e)
+    finally:
+        cur.close() 
+        
+
     
     return render_template('extentions/sqlogin2.html', error=error)
 

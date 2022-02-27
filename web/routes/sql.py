@@ -15,6 +15,7 @@ def login():
         cur = db.connection.cursor()
 
         try:
+            
             username = request.form.get('user_name')
             password = request.form.get('password')
 
