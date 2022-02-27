@@ -29,7 +29,7 @@ def login():
             if rows is not None:
                 session['username'] = rows[0]
                 res = make_response(redirect(url_for('.home')))
-                res.set_cookie('token', rows[1], domain='127.0.0.1')
+                res.set_cookie('token', rows[1], domain='127.0.0.1', expires=600)
 
                 return res
 
@@ -61,5 +61,6 @@ def home():
 def logout():
 
     session.clear()
-    return redirect(url_for('.login'))
-
+    res = make_response(redirect(url_for('.login')))
+    res.set_cookie('token', '', domain='127.0.0.1', expires=0)
+    return res
