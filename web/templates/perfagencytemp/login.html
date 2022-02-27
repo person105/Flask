@@ -26,19 +26,19 @@
 
                     
                     <span>Username</span>
-					<input class="text" type="text" name="user_name">
+					<input class="text" type="text" name="user_name"/>
 					
                     <br>
 
 					<!--- Please remember to remove print check for password --->
                     <span>Password</span>
-					<input class="text" type="password" name="password">
+					<input class="text" type="password" name="password"/>
                     
                    
 
-					<input class="button" type="submit" value="Login">
+					<input class="button" type="submit" value="Login"/>
 
-					<div class="error">{{ error }}</div>
+					<div class="error"> {%block error%} {{ error }} {%endblock%} </div>
 
 
 				</form>
@@ -46,6 +46,7 @@
 		</div>
 
 		<div id="footer">.</div>
+		{% block notes %} {% endblock %}
 
 	
 	</div> 

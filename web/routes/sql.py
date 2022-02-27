@@ -30,8 +30,7 @@ def login():
 
             session['user_id'] = rows[0]
             session['username'] = rows[1]
-
-            print(rows)
+        
 
             if len(rows) > 0:
                 return redirect(url_for('.home'))
@@ -52,12 +51,12 @@ def home():
 
     flag = ""
     
-    if session['username'] is not None:
+    if session.get('username') is not None:
         
         if session['username'] == "admin":
             flag = "FLAG: SUCCESSFUL INFILTRATION"
 
-        return render_template('perfagencytemp/base.html', username=session['username'], flag=flag)
+        return render_template('perfagencytemp/base.html', username=session['username'], flag=flag, href="/SQL/logout")
 
     else:
         return redirect(url_for('.login'))
@@ -66,7 +65,8 @@ def home():
 
 @sql.route('/logout', methods=['GET', 'POST'])
 def logout():
-
+    
+    session.clear()
     return render_template('main/index.html')
 
 

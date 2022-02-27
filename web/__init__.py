@@ -17,13 +17,19 @@ def create_app():
     app.config['MYSQL_DB'] = env['dbname']
 
     from .routes.index import index
+
     from .routes.sql import sql
+    from .routes.sql2 import sql2
+
     from .routes.xss import xss
 
     db.init_app(app)
 
     app.register_blueprint(index, url_prefix='/')
+
     app.register_blueprint(sql, url_prefix='/SQL')
+    app.register_blueprint(sql2, url_prefix='/SQL/chap2')
+
     app.register_blueprint(xss, url_prefix='/XSS')
 
 

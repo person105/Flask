@@ -22,8 +22,8 @@ def login():
 
             hashed = hashlib.md5(password.encode())
 
-            query = "select * from users where user_name = '"+username+"' and password = '"+hashed.hexdigest()+"' limit 1"
-            cur.execute(query)
+            query = "select * from users where user_name = %s and password = %s limit 1"
+            cur.execute(query,(username, hashed.hexdigest()))
             print(query)
 
             rows = cur.fetchone()
@@ -126,14 +126,14 @@ def signup():
             hashed = hashlib.md5(password.encode())
 
             # Check if user exists
-            query = "select * from users where user_name = '"+username+"'"
-            cur.execute(query)
+            query = "select * from users where user_name = %s"
+            cur.execute(query,(username))
             rows = cur.fetchall()
 
             if len(rows) == 0:
-                query = "insert into users (user_name,password) values ('"+username+"','"+hashed.hexdigest()+"')"
+                query = "insert into users (user_name,password) values (%s, %s)"
             
-                cur.execute(query)
+                cur.execute(query,(username, hashed.hexdigest()))
                 print(query)
 
                 db.connection.commit()
