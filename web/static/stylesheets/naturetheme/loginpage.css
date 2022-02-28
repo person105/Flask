@@ -1,8 +1,16 @@
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
 body {
     margin: 0;
 	background-image: url('../../assets/woodbg.jpeg');
-
-
 }
 
 
@@ -17,7 +25,7 @@ body {
     display: grid;
 
     grid-template-rows: 200px 500px 100px;
-	grid-template-columns: 1fr 400px;
+	/* grid-template-columns: 1fr ; */
 
     gap: 10px;
 
@@ -68,7 +76,7 @@ body {
 
 #box {
     width: 400px;
-	height: 500px;
+	height: 600px;
 
     background-color: white;
     border-radius: 18px;
@@ -91,7 +99,7 @@ span {
 	margin-top: 5px;
 	border-radius: 100px;
 	padding: 15px 15px;
-	border: 1px solid #c6c6c6;
+	/* border: 1px solid #c6c6c6; */
 	width: 85%;
 
 }
@@ -111,7 +119,7 @@ span {
     font-size: 20px;
 }
 
-#helpbar {
+/* #helpbar {
 
 	display: grid;
 
@@ -213,5 +221,5 @@ span {
 
 }
 
-
+ */
 

@@ -66,7 +66,7 @@ def admin():
     print(token)
     if (token == '8abae5d8bc89622b6bf5a76c948312f2'):
         print("REDIRECT TO ADMIN")
-        return render_template('naturetemp/base.html', username="admin", desc="{FLAG: Yay XSS!'}")
+        return render_template('naturetemp/base.html', username="admin", desc="{FLAG: Beware of <script> tag!'}")
 
     else:
         #TODO: Redirect to UNAUTHORIZED

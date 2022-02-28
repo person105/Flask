@@ -15,7 +15,7 @@ def login():
         cur = db.connection.cursor()
 
         try:
-            
+
             username = request.form.get('user_name')
             password = request.form.get('password')
 
@@ -55,7 +55,7 @@ def home():
     if session.get('username') is not None:
         
         if session['username'] == "admin":
-            flag = "FLAG: SUCCESSFUL INFILTRATION"
+            flag = "{FLAG: Successful Infiltration!'}"
 
         return render_template('perfagencytemp/base.html', username=session['username'], flag=flag, href="/SQL/logout")
 

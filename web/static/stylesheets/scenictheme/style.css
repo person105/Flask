@@ -617,6 +617,7 @@ html, body {
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     color: #26272d;
+    overflow-x: hidden; 
 }
 
 .img-res {
@@ -1686,7 +1687,7 @@ span {
 	margin-top: 5px;
 	border-radius: 100px;
 	padding: 15px 15px;
-	border: 1px solid #c6c6c6;
+	border: 1px transparent #c6c6c6;
 	width: 90%;
 
 
@@ -1706,37 +1707,4 @@ span {
 	font-family: 'Montserrat', sans-serif;
     font-size: 20px;
 }
-
-/* .toggle-btn {
-	appearance: none;
-	width: 150px;
-	height: 40px;
-	border: 1px solid black;
-	position: absolute;
-	top: 35px;
-	left: 30%;
-	border-radius: 100px;
-}
-
-.toggle-btn::before{
-	content: 'Signup';
-	color: white;
-    font-family: 'FontAwesome';
-    font-size: 18px;
-
-
-	position: absolute;
-	top:0;
-	left: 0;
-	width: 50%;
-	height: 100%;
-	background: peru;
-	border-radius: 100px;
-
-	display:grid;
-	place-items: center;
-	
-	transition: 0.5s;
-}
- */
 

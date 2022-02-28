@@ -23,6 +23,8 @@ def create_app():
 
     from .routes.xss import xss
 
+    from .routes.insecure import insecure
+
     db.init_app(app)
 
     app.register_blueprint(index, url_prefix='/')
@@ -31,6 +33,8 @@ def create_app():
     app.register_blueprint(sql2, url_prefix='/SQL/chap2')
 
     app.register_blueprint(xss, url_prefix='/XSS')
+    app.register_blueprint(insecure, url_prefix='/INSEC')
+
 
 
     return app
