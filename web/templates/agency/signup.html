@@ -1,0 +1,57 @@
+{% extends "agency/base.html" %}
+
+{% block title %} Your story begins from here. {%endblock%}
+{% block desc %} Your clients on the internet. Learn how to receive them. {%endblock%}
+
+{% block form %} 
+
+	<style>
+		.error{
+			color: white;
+			font-size: 18px;
+			font-style: italic;
+			left: 0;
+			padding-top: 10px;
+			padding-bottom: 10px;    
+		}
+	</style>
+
+    <div id="container">
+		<div id="box">
+
+			<br><br>
+			<div style="font-size: 20px;color: white;">Sign Up</div>
+
+            <form method="post" id="signup">
+                    
+                    <span>Username</span>
+					<input class="text" type="text" name="user_name">
+
+					<br>
+
+					<!--- Please remember to remove print check for password --->
+                    <span>Password</span>
+					<input class="text" type="password" name="password">
+                    
+
+					<input class="button" type="submit" value="Sign Up">
+
+					{# <input type="hidden" name="form" value="signup"> #}
+
+					<div class="error">{{ error }}</div>
+
+
+				</form>
+
+		</div>
+
+		<div id="footer">.</div>
+
+	
+	</div> 
+{% endblock %}
+
+{% block content %} {% endblock %}
+{% block homebtn %} {% endblock %}
+{% block logoutbtn %} {% endblock %}
+

@@ -1,6 +1,6 @@
 from http.client import UNAUTHORIZED
 from secrets import token_urlsafe
-from flask import Blueprint, render_template, request, jsonify, redirect, session, url_for, make_response, g
+from flask import Blueprint, render_template, request, jsonify, redirect, session, url_for, make_response, g, abort
 import hashlib
 import os, time
 
@@ -52,7 +52,7 @@ def login():
         finally:
             cur.close() 
     
-    return render_template('naturetemp/login.html', error=error, query= query)
+    return render_template('nature/login.html', error=error, query= query)
 
 
 @xss.route('/admin', methods=['GET', 'POST'])
@@ -66,10 +66,12 @@ def admin():
     print(token)
     if (token == '8abae5d8bc89622b6bf5a76c948312f2'):
         print("REDIRECT TO ADMIN")
-        return render_template('naturetemp/base.html', username="admin", desc="{FLAG: Beware of <script> tag!'}")
+        return render_template('nature/base.html', username="admin", desc="{FLAG: Beware of <script> tag!'}")
 
     else:
         #TODO: Redirect to UNAUTHORIZED
+        
+        abort(401)
         return redirect(url_for('.login'))
     
 
@@ -108,7 +110,7 @@ def home():
         upload()
 
     if session['username'] is not None:
-        return render_template('naturetemp/base.html', username=session['username'], desc=session['desc'])
+        return render_template('nature/base.html', username=session['username'], desc=session['desc'])
 
     else:
         return redirect(url_for('.login'))
@@ -170,7 +172,7 @@ def signup():
         finally:
             cur.close() 
     
-    return render_template('naturetemp/signup.html', error=error)
+    return render_template('nature/signup.html', error=error)
 
 def setAuthTrue():
      global auth
@@ -224,6 +226,6 @@ def upload():
         finally:
             cur.close() 
     
-    return render_template('naturetemp/base.html', error=error)
+    return render_template('nature/base.html', error=error)
 
 

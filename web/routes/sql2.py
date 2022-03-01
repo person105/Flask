@@ -56,7 +56,7 @@ def home():
     
     if session.get('username') is not None:
         
-        return render_template('perfagencytemp/base.html', username=session['username'], href="/SQL/chap2/logout")
+        return render_template('agency/base.html', username=session['username'], href="/SQL/chap2/logout")
 
     else:
         return redirect(url_for('.login'))

@@ -44,7 +44,7 @@ def login():
         finally:
             cur.close() 
     
-    return render_template('perfagencytemp/login.html', error=error, query= query)
+    return render_template('agency/login.html', error=error, query= query)
 
 
 @sql.route('/home', methods=['GET', 'POST'])
@@ -57,7 +57,7 @@ def home():
         if session['username'] == "admin":
             flag = "{FLAG: Successful Infiltration!'}"
 
-        return render_template('perfagencytemp/base.html', username=session['username'], flag=flag, href="/SQL/logout")
+        return render_template('agency/base.html', username=session['username'], flag=flag, href="/SQL/logout")
 
     else:
         return redirect(url_for('.login'))
@@ -115,4 +115,4 @@ def logout():
 #         finally:
 #             cur.close() 
     
-#     return render_template('perfagencytemp/signup.html', error=error)
+#     return render_template('agency/signup.html', error=error)

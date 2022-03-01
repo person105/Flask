@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My website</title>
+	<link href="{{ url_for('static', filename='stylesheets/nature/homepage.css') }}" rel="stylesheet">
+
+	
+	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts/sidebar.js') }}"></script>  
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/sidebar/style.css') }}">
+
+</head>
+<body>
+
+	<div class="container">
+		<div id="header">Hello, {{ username }}</div>
+
+		<form method="post">
+			<div class="box">
+
+				<div style="font-size: 20px;margin: 10px;color: black;">Submit user description</div>
+
+				<h3>{{ desc|safe }}</h3>
+
+				<input type="hidden" name="user_name" value="{{ username }}">
+
+				<input class="input-field" name="desc"><br><br>
+				<input class="button" type="submit" value="Submit"><br><br>
+
+				<a href="logout">Logout</a>
+
+			</div>
+		</form>
+	</div>
+
+	<nav class="sidebar close">
+        <header>
+            <div class="image-text">
+
+                <div class="text logo-text">
+                    <span class="name">CTF4Beginners</span>
+                    <span class="profession">XSS Based</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <li class="search-box">
+                    <!-- <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search..."> -->
+                    <a href="#">
+                        <i class='bx bx-search icon' ></i>
+                        <span class="text nav-text">Get a Hint!</span>
+                    </a>
+                </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bell icon' ></i>
+                            <span class="text nav-text">Hint 1</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bell icon' ></i>
+                            <span class="text nav-text">Hint 2</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bell icon' ></i>
+                            <span class="text nav-text">Hint 3</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                
+            </div>
+        </div>
+
+    </nav>
+
+    
+	
+</body>
+</html>

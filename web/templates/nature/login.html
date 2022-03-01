@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Main Website</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+	<script src="{{ url_for('static', filename='scripts/login.js') }}"></script>  
+	<script src="{{ url_for('static', filename='scripts/sidebar.js') }}"></script>  
+
+
+
+	<link href="{{ url_for('static', filename='stylesheets/nature/loginpage.css') }}" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+	<!----======== CSS ======== -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/sidebar/style.css') }}">
+
+</head>
+
+<style>
+  	.error{
+    	color: red;
+		font-size: 18px;
+        font-style: italic;
+		left: 0;
+		padding-top: 10px;
+		padding-bottom: 10px;    
+    }
+  </style>
+
+<body>
+	<div id="container">
+		<div id="header">Company Name</div>
+
+		<div class="filler">.</div>
+
+		<div class="content">
+			<div id="box">
+
+				<br><br>
+				{% block title %}<div style="font-size: 20px;color: black;">Login</div>{% endblock %}
+
+				{% block form %} <form method="post" id="login"> {% endblock %}
+					
+					<br> 
+
+					<span>Username</span>
+					<input class="text" type="text" name="user_name">
+
+					<br><br>
+
+					<!--- Please remember to remove print check for password --->
+					<span>Password</span>
+					<input class="text" type="password" name="password">
+
+					<br><br>
+
+					{%block button%}<input class="button" type="submit" value="Login">{%endblock%}
+
+
+					<br>
+
+					<div class="error">{{ error }}</div>
+
+					{% block href %}<a href="signup" style="font-size: 20px;">Sign Up</a>{% endblock %}
+
+
+				</form>
+			
+		
+			</div>
+		</div>
+
+
+		<nav class="sidebar close">
+			<header>
+				<div class="image-text">
+	
+					<div class="text logo-text">
+						<span class="name">CTF4Beginners</span>
+						<span class="profession">XSS Based</span>
+					</div>
+				</div>
+	
+				<i class='bx bx-chevron-right toggle'></i>
+			</header>
+	
+			<div class="menu-bar">
+				<div class="menu">
+	
+					<li class="search-box">
+						<!-- <i class='bx bx-search icon'></i>
+						<input type="text" placeholder="Search..."> -->
+						<a href="#">
+							<i class='bx bx-search icon' ></i>
+							<span class="text nav-text">Get a Hint!</span>
+						</a>
+					</li>
+	
+						<li class="nav-link">
+							<a href="#">
+								<i class='bx bx-bell icon' ></i>
+								<span class="text nav-text">Hint 1</span>
+							</a>
+						</li>
+	
+						<li class="nav-link">
+							<a href="#">
+								<i class='bx bx-bell icon' ></i>
+								<span class="text nav-text">Hint 2</span>
+							</a>
+						</li>
+	
+						<li class="nav-link">
+							<a href="#">
+								<i class='bx bx-bell icon' ></i>
+								<span class="text nav-text">Hint 3</span>
+							</a>
+						</li>
+	
+					</ul>
+				</div>
+	
+				<div class="bottom-content">
+	
+					<li class="mode">
+						<div class="sun-moon">
+							<i class='bx bx-moon icon moon'></i>
+							<i class='bx bx-sun icon sun'></i>
+						</div>
+						<span class="mode-text text">Dark mode</span>
+	
+						<div class="toggle-switch">
+							<span class="switch"></span>
+						</div>
+					</li>
+					
+				</div>
+			</div>
+	
+		</nav>
+		<div class="footer">.</div>
+		
+
+	</div>
+	
+</body>
+</html>
