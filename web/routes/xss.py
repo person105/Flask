@@ -1,4 +1,3 @@
-from http.client import UNAUTHORIZED
 from secrets import token_urlsafe
 from flask import Blueprint, render_template, request, jsonify, redirect, session, url_for, make_response, g, abort
 import hashlib
@@ -122,7 +121,7 @@ def logout():
     print("LOGOUT")
     session.clear()
     res = make_response(redirect(url_for('.login')))
-    res.set_cookie('token', '', domain='127.0.0.1', expires=0)
+    res.set_cookie('token', '', expires=0)
     return res
 
 

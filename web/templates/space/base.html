@@ -90,6 +90,13 @@
             </div>
 
             <div class="bottom-content">
+
+                <li class=""> 
+                    <a href="http://localhost:5000/"> 
+                        <i class='bx bx-log-out icon' ></i> 
+                        <span class="text nav-text">Back to Main</span> 
+                    </a> 
+                </li> 
                 
                 <li class="mode">
                     <div class="sun-moon">
@@ -111,30 +118,30 @@
     <section class="home">        
         
         <div class="container">
-            <div id="header">Serial Decoder and Encoder</div>
-            <h4 style="color: aliceblue;">Input serialized data to decode or encode data!</h4>
+            {%block title%}<div id="header">Serial Decoder and Encoder</div>{%endblock%}
+            {%block header%}<h4 style="color: aliceblue;">Input serialized data to decode or encode data!</h4>{%endblock%}
     
             <div class="box-container">
                 <form method="post">
                     <div class="box">
         
-                        <div style="font-size: 20px;margin: 10px;color: black;">Encoder</div>
+                        {%block name%}<div style="font-size: 20px;margin: 10px;color: black;">Encoder</div>{%endblock%}
         
-                        <h3>{{ data|safe }}</h3>
+                        {%block output%}<h3 style="word-wrap: break-word">{{ encoded }}</h3>{%endblock%}
             
-                        <input class="input-field" name="input"><br><br>
+                        {%block hint%}<input class="input-field" name="input"><br><br>{%endblock%}
                         <input class="button" type="submit" value="Submit"><br><br>
                         <input value = "encode" type="hidden" name="function">
             
                     </div>
                 </form>
     
-                <form method="post">
+                {%block form%}<form method="post">
                     <div class="box">
         
                         <div style="font-size: 20px;margin: 10px;color: black;">Decoder</div>
         
-                        <h3>{{ desc|safe }}</h3>
+                        <h3>{{ decoded }}</h3>
             
                         <input class="input-field" name="input"><br><br>
                         <input class="button" type="submit" value="Submit"><br><br>
@@ -142,7 +149,7 @@
         
         
                     </div>
-                </form>
+                </form> {%endblock%}
             </div>
 
         </div>

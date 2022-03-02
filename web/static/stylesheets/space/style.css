@@ -20,6 +20,7 @@
     grid-template-rows: 150px;
     /* grid-template-columns: 50% 50%; */
 
+
     justify-items: center;
     text-align: center;
     
@@ -61,7 +62,7 @@
 
 }
 
-.input-field {
+.box .input-field {
 
     height: 100px;
     width: 90%;
@@ -70,6 +71,7 @@
     border-width: 50px;
     padding: 15px 15px;
     border: 1px solid black;
+
     /* overflow-wrap: break-word;
     inline-size: 90%; */
     margin-left: auto;
@@ -79,7 +81,7 @@
 
 
 
-.button {
+.box .button {
 
     margin-top: 5px;
     border-radius: 150px;

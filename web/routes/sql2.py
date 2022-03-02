@@ -1,7 +1,5 @@
-from lib2to3.pgen2 import token
 from flask import Blueprint, render_template, request, jsonify, session, redirect, url_for, make_response
 import hashlib
-import sqlite3
 
 sql2 = Blueprint('sql2', __name__)
 
@@ -47,7 +45,7 @@ def login():
         
 
     
-    return render_template('extentions/sqlogin2.html', error=error)
+    return render_template('ext/agencylogin.html', error=error)
 
 
 @sql2.route('/home', methods=['GET', 'POST'])

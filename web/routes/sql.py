@@ -68,7 +68,7 @@ def home():
 def logout():
     
     session.clear()
-    return render_template('main/index.html')
+    return render_template('agency/login.html')
 
 
 

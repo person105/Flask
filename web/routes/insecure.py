@@ -10,54 +10,46 @@ import base64
 insecure = Blueprint('insecure', __name__)
 
 
-@insecure.route('/', methods=['GET', 'POST'], defaults={'input': None, 'output': None})
-def home(input, output):
+@insecure.route('/', methods=['GET', 'POST'])
+def home():
 
-    if ((request.method == 'POST') or (input != None)):
-        if (input != None):
-            func = input
-        else:
-            func = request.form.get('function')
+    if ((request.method == 'POST') ):
+        
+        func = request.form.get('function')
 
         if (func == 'encode'):
-            return redirect(url_for('.serialize', input = request.form.get('input')))
+            return serialize(request.form.get('input'))
 
         elif (func == 'decode'):
-            return redirect(url_for('.deserialize', input = request.form.get('input')))
+            return deserialize(request.form.get('input'))
 
-    return render_template('space/base.html', data = output)
+    return render_template('space/base.html')
 
 
-@insecure.route('/serialize/<input>', methods=['GET', 'POST'])
+
+# @insecure.route('/serialize/<input>', methods=['GET', 'POST'])
 def serialize(input):
 
-    if request.method == 'POST':
-        return redirect(url_for('.home', input = request.form.get('input')))
-    
     print(input)
     pickled = pickle.dumps(input)    
 
-    #Deserialize
-    return redirect(url_for('.home', output = pickled))
+    return render_template('space/base.html', encoded = pickled)
 
 
 
-@insecure.route('/deserialize/<input>', methods=['GET', 'POST'])
+# @insecure.route('/deserialize/<input>', methods=['GET', 'POST'])
 def deserialize(input):
     
-    if request.method == 'POST':
-        return redirect(url_for('.home', input = request.form.get('input')))
-
+    input = input.replace("'","").replace("b","").encode().decode('unicode_escape')
     print(input)
+    binput = input.encode('latin1')
 
-    data = base64.urlsafe_b64decode(input+'==')
-    deserialized = pickle.loads(data)
+    print(binput)
+    deserialized = pickle.loads(binput)
 
     print(deserialized)
     
-
-    #Deserialize
-    return render_template('space/base.html', data = deserialized)
+    return render_template('space/base.html', decoded = deserialized)
 
 
 
