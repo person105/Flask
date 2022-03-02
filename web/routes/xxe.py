@@ -8,11 +8,10 @@ xxe = Blueprint('xxe', __name__)
 
 @xxe.route('/', methods=['GET', 'POST'])
 def home():
-
     
-    return redirect(url_for('.phpex'))
+    return render_template('ext/spacebase2.html')
 
-@xxe.route('/test.php')
-def phpex():
+# @xxe.route('/test.php')
+def test():
     out = sp.run(["php", wd+r"\php\test.php"], stdout=sp.PIPE)
     return out.stdout

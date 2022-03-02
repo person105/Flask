@@ -1,0 +1,32 @@
+{% extends "space/base.html" %}
+
+{%block bodystyle%}
+<style>
+    body{
+        height: 100vh;
+        width: 100%;
+        /* background-color: var(--body-color); */
+        /* transition: var(--tran-05); */
+        background: url('../../static/assets/noodleshop.gif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow-x: hidden;
+        
+    }
+</style>
+{%endblock%}
+
+{%block title%}<div id="header" style="color: darkorange;">Welcome!</div>{%endblock%}
+{%block header%}<h4 style="color:floralwhite;"></h4>{%endblock%}
+   
+        
+{%block name%}<div style="font-size: 25px;margin: 10px;color: cornflowerblue;">Order Form</div>{%endblock%}
+{%block output%}<h3 style="color:black">Please place your order:</h3><br>{%endblock%}
+
+{%block hint%}<textarea name="form" rows=10 cols=5 style="resize: none;" ><name>Tonkatsu Ramen</name><toppings>Add Ajitama Egg</topping><optional>Add Beef</optional></textarea><br><br>{%endblock%}
+
+{%block button%}<input class="button" type="submit" style="background: cornflowerblue;" value="Submit"><br><br>{%endblock%}
+        
+
+{%block form%} {%endblock%}
+

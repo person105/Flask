@@ -13,6 +13,7 @@ function parseXml($doc) {
         die('Error loading xml');
     }
 
+    echo($result);
     return $result;
 }
 

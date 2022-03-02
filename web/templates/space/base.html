@@ -24,12 +24,12 @@
 
 </head>
 
+{%block bodystyle%}
 <style>
     body{
         height: 100vh;
         width: 100%;
-        /* background-color: var(--body-color); */
-        /* transition: var(--tran-05); */
+       
         background: url('../../static/assets/space.gif');
         background-repeat: no-repeat;
         background-size: cover;
@@ -37,6 +37,7 @@
         
     }
 </style>
+{%endblock%}
 
 <body>
 
@@ -127,10 +128,10 @@
         
                         {%block name%}<div style="font-size: 20px;margin: 10px;color: black;">Encoder</div>{%endblock%}
         
-                        {%block output%}<h3 style="word-wrap: break-word">{{ encoded }}</h3>{%endblock%}
+                        {%block output%}<h3 style="overflow-wrap: anywhere;">{{ encoded }}</h3>{%endblock%}
             
                         {%block hint%}<input class="input-field" name="input"><br><br>{%endblock%}
-                        <input class="button" type="submit" value="Submit"><br><br>
+                        {%block button%}<input class="button" type="submit" value="Submit"><br><br>{%endblock%}
                         <input value = "encode" type="hidden" name="function">
             
                     </div>
@@ -141,7 +142,7 @@
         
                         <div style="font-size: 20px;margin: 10px;color: black;">Decoder</div>
         
-                        <h3>{{ decoded }}</h3>
+                        <h3 style="overflow-wrap: anywhere;">{{ decoded }}</h3>
             
                         <input class="input-field" name="input"><br><br>
                         <input class="button" type="submit" value="Submit"><br><br>
