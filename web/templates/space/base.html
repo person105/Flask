@@ -132,7 +132,7 @@
             
                         {%block hint%}<input class="input-field" name="input"><br><br>{%endblock%}
                         {%block button%}<input class="button" type="submit" value="Submit"><br><br>{%endblock%}
-                        <input value = "encode" type="hidden" name="function">
+                        {%block hidden%}<input value = "encode" type="hidden" name="function">{%endblock%}
             
                     </div>
                 </form>
