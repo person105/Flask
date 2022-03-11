@@ -20,10 +20,12 @@ def create_app():
 
     from .routes.sql import sql
     from .routes.sql2 import sql2
-    from .routes.xml import xml
 
     from .routes.xss import xss
+    from .routes.xss2 import xss2
+
     from .routes.xxe import xxe
+    from .routes.xml import xml
 
     from .routes.insecure import insecure
 
@@ -32,11 +34,14 @@ def create_app():
     app.register_blueprint(index, url_prefix='/')
 
     app.register_blueprint(sql, url_prefix='/SQL')
-    app.register_blueprint(sql2, url_prefix='/SQL/chap2')
-    app.register_blueprint(xml, url_prefix='/XML')
+    app.register_blueprint(sql2, url_prefix='/SQL2/')
 
     app.register_blueprint(xss, url_prefix='/XSS')
+    app.register_blueprint(xss2, url_prefix='/XSS2/')
+
+
     app.register_blueprint(xxe, url_prefix='/XXE')
+    app.register_blueprint(xml, url_prefix='/XML')
 
 
     app.register_blueprint(insecure, url_prefix='/INSEC')

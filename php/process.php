@@ -1,21 +1,15 @@
 <?php 
 // D:\GitAssignment\Flask\Flask\php\process.php
 require 'func.php';
-session_start();
 
 function getOrder($xml){
     $order = parseXml($xml);
-    print_r($order);
+    $title = str_replace(" ", "%20", $order->name[0]);
+    $res = str_replace(" ", "%20", "Order Received!");
 
-    $res = "Got your order!";
-
-    $cmd = "curl -d 'form={$res}&res=true' http://127.0.0.1:5000/XXE/ ";
+    $cmd = 'curl "http://localhost:5000/XXE/?form='.$res.'&res=true&title='.$title.'"';
     
-    echo shell_exec($cmd);
-
+    shell_exec($cmd);
 }
 
-
-
-// echo htmlentities($argv[1]);
 getOrder($argv[1]);

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>My website</title>
-	<link href="{{ url_for('static', filename='stylesheets/nature/homepage.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='stylesheets/sunset/style.css') }}" rel="stylesheet">
 
 	
 	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -10,30 +10,11 @@
     <script src="{{ url_for('static', filename='scripts/sidebar.js') }}"></script>  
 
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/sidebar/style.css') }}">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-eval' 'https://cdnjs.cloudflare.com';">
+
 
 </head>
 <body>
-
-	<div class="container">
-		{%block title%}<div id="header">Hello, {{ username }}</div>{%endblock%}
-
-		<form method="post">
-			<div class="box">
-
-				{%block subheader%}<div style="font-size: 20px;margin: 10px;color: black;">Submit user description</div>{%endblock%}
-
-				{%block output%}<h3>{{ desc|safe }}</h3>{%endblock%}
-
-				{%block hidden%}<input type="hidden" name="user_name" value="{{ username }}">{%endblock%}
-
-				<input class="input-field" name="desc"><br><br>
-				<input class="button" type="submit" value="Submit"><br><br>
-
-				{%block logout%}<a href="logout">Logout</a>{%endblock%}
-
-			</div>
-		</form>
-	</div>
 
 	<nav class="sidebar close">
         <header>
@@ -110,7 +91,58 @@
 
     </nav>
 
+    <section class="home">   
+        <div class="container">
+            <div id="header">Notetaker v4000</div>
+
+            <form method="post">
+                <div class="box">
+                    <table class="table" border="1">
+                        <tr>
+                            <td>Entry</td>
+                            <td>Notes</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <br>
+                                I have been trying to journal my thoughts but I can't seem to remember what to write...
+                                <br><br>
+                            </td>
+                        
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>
+                                <br>
+                                I feel like my head is in the clouds.
+                                <br><br>
+                            </td>
+                        
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>
+                                <br>
+                                I need more thoughts!!
+
+                                <br><br>
+                            </td>
+                        
+                        </tr>
+                        {%block notes%}{{notes|safe}}{%endblock%}
+                    </table>
     
+                        <textarea name="form" rows=5 cols=135></textarea><br><br>
+                        <input class="button" type="submit" value="Submit"><br><br>
+    
+                </div>
+            </form>
+           
+            
+        </div>
+    </section>
+
 	
 </body>
 </html>

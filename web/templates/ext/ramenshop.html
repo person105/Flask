@@ -1,5 +1,7 @@
 {% extends "space/base.html" %}
 
+{%block return%}<title>{{title}}</title>{%endblock%}
+
 {%block bodystyle%}
 <style>
     body{
@@ -17,7 +19,7 @@
 {%endblock%}
 
 {%block title%}<div id="header" style="color: darkorange;">Welcome!</div>{%endblock%}
-{%block header%}<h4 style="color:floralwhite;">{{ feedback }}</h4>{%endblock%}
+{%block header%}<h4 id="feedback" style="color:peru;">{{ feedback }}</h4>{%endblock%}
    
         
 {%block name%}<div style="font-size: 25px;margin: 10px;color: cornflowerblue;">Order Form</div>{%endblock%}
@@ -29,7 +31,16 @@
     <optional>Add Beef</optional></food></textarea><br><br>{%endblock%}
 
 {%block button%}<input class="button" type="submit" style="background: cornflowerblue;" value="Submit"><br><br>{%endblock%}
-{%block hidden%}<input value = "false" type="hidden" name="res">{%endblock%}
+{%block hidden%}<script>
+                    if ( window.history.replaceState ) {
+                        window.history.replaceState( null, null, window.location.href );
+                    }
+
+                    setTimeout(function(){
+                        document.getElementById("feedback").innerHTML = '';
+                    }, 1000);
+
+                </script>{%endblock%}
         
 
 {%block form%} {%endblock%}
