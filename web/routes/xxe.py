@@ -1,4 +1,3 @@
-from email.policy import default
 from flask import Blueprint, render_template, request, abort, session, redirect, url_for
 import subprocess as sp
 import os, sys

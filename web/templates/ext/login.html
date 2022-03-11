@@ -1,0 +1,11 @@
+{% extends "agency/login.html" %}
+
+{% block title %}{%endblock%}
+
+{% block notes %} <!-- [Add note] --> {% endblock %}
+
+{% block error %} {{ error }} {%endblock%}
+
+{%block username%}<input class="text" type="text" name="username" value="{{ username }}"/>{%endblock%}
+
+{%block password%}<input class="text" type="password" name="password" value="{{ password }}"/>{%endblock%}
