@@ -31,6 +31,7 @@ def create_app():
 
     from .routes.xss import xss
     from .routes.xss2 import xss2
+    from .routes.xss3 import xss3
 
     from .routes.xxe import xxe
     from .routes.xml import xml
@@ -46,6 +47,7 @@ def create_app():
 
     app.register_blueprint(xss, url_prefix='/XSS')
     app.register_blueprint(xss2, url_prefix='/XSS2/')
+    app.register_blueprint(xss3, url_prefix='/XSS3/')
 
 
     app.register_blueprint(xxe, url_prefix='/XXE')

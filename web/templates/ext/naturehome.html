@@ -1,0 +1,17 @@
+{% extends "nature/base.html" %}
+
+{%block meta%}<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';">{%endblock%}
+
+{%block title%}<div id="header">Send your feedback to our admin!</div>{%endblock%}
+
+
+{%block subheader%}<div class="subheader">Posted feedback:</div>{%endblock%}
+
+{%block output%}<h3 class="feedback">{{ feedback|safe }}</h3>{%endblock%}
+
+{%block hidden%}{%endblock%}
+
+<input class="input-field" name="desc"><br><br>
+<input class="button" type="submit" value="Submit"><br><br>
+
+{%block logout%}{%endblock%}
