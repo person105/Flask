@@ -8,17 +8,24 @@ xss2 = Blueprint('xss2', __name__)
 @xss2.route('/', methods=['GET', 'POST'])
 def home():
 
-    global notes
     if request.method == "POST":
-        add_note(request.form.get('form'))
+
+        if(request.form.get('form') is not None):
+            add_note(request.form.get('form'))
+        
+        elif(request.form.get('refresh') is not None):
+            reload()
 
 
     return render_template('simpletable/base.html', notes = notes)
 
-def add_note(note):
-    global notes
 
-    #TODO: Check html tag
+def reload():
+    global notes
+    notes = []
+
+def add_note(note):
+
     notes.append("<tr>                                      \
                         <td>"+str(len(notes)+4)+"</td>      \
                         <td>                                \

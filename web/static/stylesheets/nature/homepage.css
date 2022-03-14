@@ -28,10 +28,12 @@ body {
     
 }
 
-#header {
+.header {
     margin: 20px;
-    grid-column-start:1 ;
-    grid-column-end:2 ;
+    margin-left: 165px;
+    display: grid;
+    
+    grid-template-columns: 1fr 150px;
     color: white;
     font-size: 38px;
 
@@ -78,6 +80,9 @@ body {
     
 }
 
+.reload{
+    margin-left: 250px;
+}
 
 .subheader {
 
@@ -90,3 +95,4 @@ body {
 
     overflow-wrap: anywhere;
 }
+

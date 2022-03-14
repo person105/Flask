@@ -15,29 +15,6 @@
 </head>
 <body>
 
-	<div class="container">
-		{%block title%}<div id="header">Hello, {{ username }}</div>{%endblock%}
-
-		<form method="post">
-			<div class="box">
-
-				{%block subheader%}<div style="font-size: 20px;margin: 10px;color: black;">Submit user description</div>{%endblock%}
-
-				{%block output%}<h3>{{ desc|safe }}</h3>{%endblock%}
-
-                {%block flag%}<h3>{{ flag }}</h3> {%endblock%}
-
-				{%block hidden%}<input type="hidden" name="user_name" value="{{ username }}">{%endblock%}
-
-				<input class="input-field" name="desc"><br><br>
-				<input class="button" type="submit" value="Submit"><br><br>
-
-				{%block logout%}<a href="logout">Logout</a>{%endblock%}
-
-			</div>
-		</form>
-	</div>
-
 	<nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -112,6 +89,35 @@
         </div>
 
     </nav>
+
+    <div class="container">
+		<div class="header">
+            {%block title%}<div id="header">Hello, {{ username }}</div>{%endblock%}
+            <form method="post">
+                <input type="hidden" name="user_name" value="{{ username }}">
+                <input class="button reload" name="refresh" type="submit" value="Reload"><br><br>
+            </form>
+        </div>
+
+		<form method="post">
+			<div class="box">
+
+				{%block subheader%}<div style="font-size: 20px;margin: 10px;color: black;">Submit user description</div>{%endblock%}
+
+				{%block output%}<h3>{{ desc|safe }}</h3>{%endblock%}
+
+                {%block flag%}<h3>{{ flag }}</h3> {%endblock%}
+
+				{%block hidden%}<input type="hidden" name="user_name" value="{{ username }}">{%endblock%}
+
+				<input class="input-field" name="desc"><br><br>
+				<input class="button" type="submit" value="Submit"><br><br>
+
+				{%block logout%}<a href="logout">Logout</a>{%endblock%}
+
+			</div>
+		</form>
+	</div>
 
     
 	

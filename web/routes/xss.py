@@ -187,7 +187,6 @@ def getAuth():
      global auth  
      return auth
 
-
 def upload():
 
     from ..__init__ import db
