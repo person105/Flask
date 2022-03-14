@@ -2,7 +2,9 @@ from flask import Flask
 from flask_mysqldb import MySQL
 import yaml
 from flask_pymongo import PyMongo
+import os
 
+wd = os.getcwd()
 
 db = MySQL()
 
@@ -10,7 +12,7 @@ def create_app():
     
     app = Flask(__name__)
 
-    env = yaml.load(open(r'D:\GitAssignment\Flask\Flask\web\db.yaml'))
+    env = yaml.load(open(wd+r"\web\db.yaml"))
     app.config['SECRET_KEY'] = env['secret']
 
     app.config['MYSQL_HOST'] = env['dbhost']

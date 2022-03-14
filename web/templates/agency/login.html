@@ -1,6 +1,7 @@
 {% extends "agency/base.html" %}
 
-{% block title %} Hint: How do you alter the conditions of the query to be true? {%endblock%}
+<!-- Hint: How do you alter the conditions of the query to be true? -->
+{% block title %} Restricted Access! {%endblock%}
 {% block desc %} <span style="color: red;"> {{ query }} </span> {%endblock%}
 
 {% block form %} 
@@ -9,7 +10,7 @@
 		.error{
 			color: white;
 			font-size: 18px;
-			font-style: italic;
+			font-style: bold;
 			left: 0;
 			padding-top: 10px;
 			padding-bottom: 10px;    

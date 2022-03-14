@@ -55,7 +55,7 @@ def home():
     if session.get('username') is not None:
         
         if session['username'] == "admin":
-            flag = "{FLAG: Successful Infiltration!'}"
+            flag = "FLAG:{ N0_4cc0unt_n0_Pr0b3lm}!"
 
         return render_template('agency/base.html', username=session['username'], flag=flag, href="/SQL/logout")
 
@@ -68,7 +68,7 @@ def home():
 def logout():
     
     session.clear()
-    return render_template('agency/login.html')
+    return redirect(url_for('.login'))
 
 
 

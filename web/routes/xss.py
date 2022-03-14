@@ -57,6 +57,11 @@ def login():
 @xss.route('/admin', methods=['GET', 'POST'])
 def admin():
     
+    desc = ''
+
+    if session.get('desc') is not None:
+        desc = session['desc']        
+
     if request.method == 'POST':
         upload()        
 
@@ -65,13 +70,10 @@ def admin():
     print(token)
     if (token == '8abae5d8bc89622b6bf5a76c948312f2'):
         print("REDIRECT TO ADMIN")
-        return render_template('nature/base.html', username="admin", desc="{FLAG: Beware of <script> tag!'}")
+        return render_template('nature/base.html', username="admin", desc=desc, flag="FLAG:{B3w4re_0f_us3r_1nputs!}")
 
-    else:
-        #TODO: Redirect to UNAUTHORIZED
-        
+    else:        
         abort(401)
-        return redirect(url_for('.login'))
     
 
 @xss.route('/auth', methods=['GET', 'POST'])
