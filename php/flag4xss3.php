@@ -21,7 +21,7 @@ else{
 <body style="background:black">
     <div class="container">
         <h1 style="color:white">You have redirected the admin to the attackers website upon viewing of the feedback</h1>
-        <div id="header" style="color:white">FLAG{Watch out for &lt &gt tags!}</div>
+        <div id="header" style="color:white">FLAG:{th3_w0nd3rs_0f_htm1_t4gs!}</div>
     </div>
 </body>
 </html>

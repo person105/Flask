@@ -20,7 +20,7 @@ def login():
 @xss3.route('/flag', methods=['GET', 'POST'])
 def flag():
 
-    out = sp.run(["php", wd+r"\php\flag2.php"], stdout=sp.PIPE)
+    out = sp.run(["php", wd+r"\php\flag4xss3.php"], stdout=sp.PIPE)
     
     return out.stdout
 

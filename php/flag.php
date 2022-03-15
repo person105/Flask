@@ -20,7 +20,7 @@ else{
 </head>
 <body style="background:black">
     <div class="container">
-        <div id="header" style="color:white">FLAG{Watch out for XML injections!}</div>
+        <div id="header" style="color:white">FLAG{Xrtr4_M3th0ds_L4tely_4_1nj3cti0ns!}</div>
     </div>
 </body>
 </html>

