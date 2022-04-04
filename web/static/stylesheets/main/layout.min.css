@@ -1394,3 +1394,59 @@ h3, h4 {
 .height-500 {
     height: 500px !important
 }
+
+
+.modal-bg {
+    margin-top: 45%;
+    height: 40%;
+    padding-top: 850px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+
+}
+
+
+.modal-content {
+    width: 400px;
+    height: 500px;
+    background-color:white;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.modal-content .modal-header{
+    justify-content: center;
+    margin: auto;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    width: 100%;
+}
+
+.modal-content .modal-close{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    float: right;
+    font-size: 18px;
+    border: 0;
+    outline: 0;
+    border-radius: 50%;
+}
+
+.modal-content .modal-body{
+    justify-content: center;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    overflow-wrap: anywhere;
+    width: fit-content;
+
+}
+

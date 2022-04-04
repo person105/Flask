@@ -3,13 +3,18 @@
 <head>
 	<title>My website</title>
 	<link href="{{ url_for('static', filename='stylesheets/nature/homepage.css') }}" rel="stylesheet">
-
 	
 	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='scripts/sidebar.js') }}"></script>  
+    <script src="{{ url_for('static', filename='scripts/sidebar.js') }}"></script> 
+     
+    <script src="{{ url_for('static', filename='scripts/hints.js') }}"></script>  
+    <script src="{{ url_for('static', filename='scripts/modal.js') }}"></script>  
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/sidebar/style.css') }}">
+
     {%block meta%}{%endblock%}
 
 </head>
@@ -34,28 +39,28 @@
                 <li class="search-box">
                     <!-- <i class='bx bx-search icon'></i>
                     <input type="text" placeholder="Search..."> -->
-                    <a href="#">
+                    <a class="hint-btn">
                         <i class='bx bx-search icon' ></i>
                         <span class="text nav-text">Get a Hint!</span>
                     </a>
                 </li>
 
-                    <li class="nav-link">
-                        <a href="#">
+                    <li class="nav-link" id="hint-1">
+                        <a data-modal="modal-1" class="modal-open">      
                             <i class='bx bx-bell icon' ></i>
                             <span class="text nav-text">Hint 1</span>
                         </a>
                     </li>
 
-                    <li class="nav-link">
-                        <a href="#">
+                    <li class="nav-link" id="hint-2">
+                        <a data-modal="modal-2" class="modal-open">      
                             <i class='bx bx-bell icon' ></i>
                             <span class="text nav-text">Hint 2</span>
                         </a>
                     </li>
 
-                    <li class="nav-link">
-                        <a href="#">
+                    <li class="nav-link" id="hint-3">
+                        <a data-modal="modal-3" class="modal-open">
                             <i class='bx bx-bell icon' ></i>
                             <span class="text nav-text">Hint 3</span>
                         </a>
@@ -119,7 +124,43 @@
 		</form>
 	</div>
 
-    
+    {%block modals%} 
+	<div class="modal-bg" id="modal-1" data-backdrop="static" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="icon modal-close"><i class="material-icons" style="font-size: 16px;">close</i></button>
+                <h2>Hint 1</h2> 
+            </div>
+            <div class="modal-body">
+                {%block hint1%}<h3>Wonder if there are any hidden values?</h3>{%endblock%}
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-bg" id="modal-2" data-backdrop="static">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="icon modal-close"><i class="material-icons" style="font-size: 16px;">close</i></button>
+                <h2>Hint 2</h2>
+            </div>
+            <div class="modal-body">
+                {%block hint2%}<h3>All according to scripts.</h3>{%endblock%}
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-bg" id="modal-3" data-backdrop="static">
+        <div class="modal-content">
+            <div class="modal-header"> 
+                <button class="icon modal-close"><i class="material-icons" style="font-size: 16px;">close</i></button>
+                <h2>Hint 3</h2>
+            </div>
+            <div class="modal-body">
+                {%block hint3%}<h3>Have you heard of ngrok and netcat?</h3>{%endblock%}
+            </div>
+        </div>
+    </div>    
+    {%endblock%} 
 	
 </body>
 </html>
