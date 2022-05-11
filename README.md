@@ -19,6 +19,8 @@ Refer to script
 
 XSS
 ---------
+https://www.youtube.com/watch?v=bW_IuClLF7U
+
 ncat -klnvp 9000
 ngrok http 9000
 
